@@ -1,0 +1,26 @@
+﻿@page "/login"
+@using WaffleCorp.Web.Helpers
+<PageTitle>Wafflecorp | Login</PageTitle>
+    <div class="main-container">
+        <img id="logo-wc" class="d-block mb-5 mx-auto" src="img/logo-waffle.svg">
+        <h2 class="text-white text-center mb-5">Sign in</h2>
+        <form class="mx-auto" action="index.html">
+            <input type="text" name="email" placeholder="Email" class="d-block w-100 mb-4">
+            <input type="text" name="password" placeholder="Password" class="d-block w-100 mb-5">
+            <input type="submit" id="login-button" name="signin" value="Sign In" class="spaced w-100 btn border-0 text-nav-black mb-3">
+        </form>
+        <p class="text-center mt-4">New to Wafflecorp? <NavLink href="signup" Match="NavLinkMatch.All">Sign up</NavLink></p>
+    </div>
+
+
+@code {
+    [Inject] private IJSRuntime _js { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var appJsInterop = new AppJsInterop(_js);
+        await appJsInterop.SetBodyId("login");
+        await appJsInterop.SetBodyCss("min-vh-100 bg-footer-blue py-5");
+    }
+
+}

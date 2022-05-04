@@ -1,0 +1,82 @@
+﻿@page "/about"
+@using WaffleCorp.Web.Helpers
+<PageTitle>Wafflecorp | About</PageTitle>
+
+<div class="main-container">
+    <div class="container">
+
+        <!-- Intro blurb -->
+        <div class="blurb">
+            <p>Since he was a little boy, Elmer K. Waffleopalous IV had one dream: to build his own globally dominant, omnichannel waffle creation and distribution company. Only two things stood in his way: his inability to make waffles (or even have a basic understanding of their ingredients), and the market superiority of the local favorite, Waverly's Waffles (now a division of Wafflecorp). </p>
+            <p>With time, determination, and a substantial loan from his father, Waffleopalous and his battalion of attorneys used the power of their bold vision and relentless legal pressure to convince Waverly's owner Priscilla Waverly to part with her recipes and properties, both physical and intellectual. Bringing together the sweet, kindly approach of Waverly's Waffles (now a division of Wafflecorp) and marrying it with the ruthlessly efficient process of Wafflecorp has proven to be nothing short of miraculous (and tasty!) for our shareholders. The result is the emergence and complete market saturation of Wafflecorp. After all, Waffleopalous believes that which does not kill you, only makes you bigger and batter. And he made it come true with a real-life #rags2waffles success story!</p>
+            <p>Today, as the global leader in the research and development, manufacturing, and distribution of the most delicious waffles on the planet, Wafflecorp (formerly Waverly's Waffles) remains committed to bringing the highest quality waffle and waffle-adjacent products to its customers' plates. With more than 6,000 franchises, pop-up carts, and Waffle-Me-Now!™ (our automated Waffle-as-a-Service conveyor belts) in 140 countries on six continents, Wafflecorp consistently puts more waffles in more human bellies worldwide than any other worldwide waffle company concern. In 2021 alone, Wafflecorp produced more than 17,400,000 battered and beaten waffles from our main factory at Wafflecorp HQ (former location of Waverly's Waffles).</p>
+        </div>
+        <h2>What our customers are saying</h2>
+        <br>
+        <br>
+
+        <!-- Customer quotes -->
+        <div class="quote p-5 mx-auto position-relative">
+            <p>We planned on having sandwiches catered for our team meeting, but these Wafflecorp execs overheard the conversation, and [threatened us physically] if we didn't take their waffles instead. I ate so many that I was ill for about a week. I guess the spiders were good, though?”</p>
+            <div class="text-end">
+                <p>
+                    –Hominy de Fieri<br>
+                    Sr. Digital Success Manager, Blurbly
+                </p>
+            </div>
+            <img class="quote-mark position-absolute" src="img/quote.svg">
+        </div>
+
+        <div class="quote p-5 mx-auto position-relative">
+            <p>My lawyers say this is a dead end, but I'm out of options at this point. These people are LIARS! Don't believe what they tell you about their business intentions, much less the toppings on their waffles. You'll regret it for the rest of your life!”</p>
+            <div class="text-end">
+                <p>
+                    —Priscilla Waverly<br>
+                    Owner of Waverly's Waffles (now part of Wafflecorp)
+                </p>
+            </div>
+            <img class="quote-mark position-absolute" src="img/quote.svg">
+        </div>
+
+        <div class="quote p-5 mx-auto position-relative">
+            <p>“Bleep bloop. Bloop blurp, whirrrrrrrrrr!””</p>
+            <div class="text-end">
+                <p>
+                    —Waffle-Me-Now!™<br>
+                </p>
+            </div>
+            <img class="quote-mark position-absolute" src="img/quote.svg">
+        </div>
+    </div>
+</div>
+<div id="Philanthropy" class="bg-blue py-5">
+    <div class="container">
+        <h1 class="text-white text-center">Wafflecorp gives back!</h1>
+        <img class="my-5 mw-100" src="img/Spiders-in-the-forest.png">
+        <p class="text-white">Wafflecorp is committed to a sustainable manufacturing process in all our factories, waffle sourcing farms, and franchises. That's why for every spider topping you choose, we'll release one spider back into the wild.</p>
+    </div>
+</div>
+<div id="careers" class="py-5">
+    <div class="container">
+        <h2 class="mb-4">Careers at Wafflecorp</h2>
+        <p>We're always looking for top talent to spread the gospel of Wafflecorp and help us keep evolving. <br>(A penchant for griddled batter doesn't hurt, either!)</p>
+        <p>Current openings:</p>
+        <p>
+            <a href="" class="d-block">Head of Public Relations</a>
+            <a href="" class="d-block">Corporate Liability Attorney</a>
+            <a href="" class="d-block">Toppings Patent Attorney</a>
+            <a href="" class="d-block">Waffle Bioethicist</a>
+            <a href="" class="d-block">Senior Waffle Magician</a>
+        </p>
+    </div>
+</div>
+
+@code {
+    [Inject] private IJSRuntime _js { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var appJsInterop = new AppJsInterop(_js);
+        await appJsInterop.SetBodyId("about");
+    }
+}

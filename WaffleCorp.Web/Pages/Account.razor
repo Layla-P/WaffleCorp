@@ -1,0 +1,116 @@
+﻿@page "/account"
+@using WaffleCorp.Web.Helpers
+
+<PageTitle>Wafflecorp | Account</PageTitle>
+<div class="main-container pt-lg-5">
+    <div class="container mb-5 pt-5">
+        <div class="d-flex pt-lg-5">
+            <h2 class="mb-4">Contact info</h2>
+            <!-- <button>EDIT</button> -->
+        </div>
+        <p>
+            John Doe<br>
+            jdoe@gmail.com<br>
+            123 Park Place, Louisville KY, 43970, USA<br>
+            (999)999-9999
+        </p>
+    </div>
+    <br>
+    <div class="container pb-3">
+        <h2 class="mb-4">Order history</h2>
+
+        <!-- Past orders -->
+        <div class="past-order mb-4">
+            <label class="justify-content-between bg-blue p-3 pointer row mx-auto mw-100">
+                <p class="m-0 px-0 col-2">Order number: 415</p>
+                <p class="m-0 px-0 col-2 ps-5">2021-Dec-15</p>
+                <p class="m-0 px-0 col-2 text-end">COMPLETE</p>
+                <p class="m-0 px-0 col-2 text-end">$18.50<i class="arrow-down ms-3 mb-1"></i></p>
+            </label>
+            <div class="order-details bg-footer-blue">
+                <div class="p-3 row justify-content-between mx-auto mw-100">
+                    <div class="m-0 px-0 col-2">
+                        <p>
+                            <strong>Waffle: </strong> <span class="past-order-base">Circle</span><br>
+                            <strong>Toppings: </strong><span class="past-order-toppings">Eyeballs, Fried Chicken, Popcorn, Surprise</span><br>
+                            <strong>Sauce: </strong><span class="past-order-sauce">Maple syrup, Slime, Lava, Bubbles</span>
+                        </p>
+                    </div>
+                    <div class="m-0 px-0 col-2 ps-5">
+                        <p>
+                            Delivered to:<br>
+                            416 Tree Boulevard<br>
+                            Louisville, KY<br>
+                            46839<br>
+                            USA
+                        </p>
+                    </div>
+                    <div class="m-0 px-0 col-2 text-end">
+                        <p>
+                            Subtotal<br>
+                            Tax
+                        </p>
+                    </div>
+                    <div class="m-0 px-0 col-2 text-end pe-4">
+                        <span class="subtotal d-block">$16.00</span>
+                        <span class="tax d-block">$2.50</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="past-order mb-5">
+            <label class="justify-content-between bg-blue p-3 pointer row mx-auto mw-100">
+                <p class="m-0 px-0 col-2">Order number: 416</p>
+                <p class="m-0 px-0 col-2 ps-5">2022-Jan-01</p>
+                <p class="m-0 px-0 col-2 text-end">COMPLETE</p>
+                <p class="m-0 px-0 col-2 text-end">$32.50<i class="arrow-down ms-3 mb-1"></i></p>
+            </label>
+            <div class="order-details bg-footer-blue">
+                <div class="p-3 row justify-content-between mx-auto mw-100 bg-footer-blue">
+                    <div class="m-0 px-0 col-2">
+                        <p>
+                            <strong>Waffle: </strong> <span class="past-order-base">Turtle</span><br>
+                            <strong>Toppings: </strong><span class="past-order-toppings">Cherries, Fried Chicken, Popcorn, Surprise</span><br>
+                            <strong>Sauce: </strong><span class="past-order-sauce">Maple syrup, Slime, Lava, Bubbles</span>
+                        </p>
+                    </div>
+                    <div class="m-0 px-0 col-2 ps-5">
+                        <p>
+                            Delivered to:<br>
+                            416 Tree Boulevard<br>
+                            Louisville, KY<br>
+                            46839<br>
+                            USA
+                        </p>
+                    </div>
+                    <div class="m-0 px-0 col-2 text-end">
+                        <p>
+                            Subtotal<br>
+                            Tax
+                        </p>
+                    </div>
+                    <div class="m-0 px-0 col-2 text-end pe-4">
+                        <span class="subtotal d-block">$30.00</span>
+                        <span class="tax d-block">$2.50</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+@code {
+    [Inject] private IJSRuntime _js { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var appJsInterop = new AppJsInterop(_js);
+        await appJsInterop.SetBodyId("account");
+        await appJsInterop.SetBodyCss("min-vh-100");
+    }
+
+}

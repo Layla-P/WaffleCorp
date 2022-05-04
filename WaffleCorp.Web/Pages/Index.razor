@@ -1,0 +1,63 @@
+﻿@page "/"
+@inherits IndexBase
+
+<PageTitle>Wafflecorp | Home</PageTitle>
+
+<div class="main-container">
+
+    <IndexHero />
+    <div id="order" class="container mb-5">
+        <!-- Choose your waffle -->
+        <div class="section">
+            <h2>Waffle shape</h2>
+            <p>Choose your base.</p>
+            <br>
+
+            <div id="base" class="d-flex row justify-content-between mx-0">
+                @foreach (var b in Bases)
+                {
+                    <SelectionCard Item="b" />
+                }
+            </div>
+        </div>
+
+        <br><br><br>
+
+        <!-- Pick your toppings -->
+        <div class="section">
+            <h2>Toppings</h2>
+            <p>Smother it with goodies.</p>
+            <br>
+
+            <div id="toppings" class="d-flex row justify-content-between mx-0">
+
+                @foreach (var t in Toppings)
+                {
+                    <SelectionCard Item="t" />
+                }
+
+            </div>
+        </div>
+
+        <br><br><br>
+
+        <!-- Pick your sauce -->
+        <div class="section">
+            <h2>Sauce</h2>
+            <p>Now add a little goop.</p>
+            <br>
+
+            <div id="toppings" class="d-flex row justify-content-between mx-0">
+
+                @foreach (var s in Sauces)
+                {
+                    <SelectionCard Item="s" />
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+<TotalBar />
+
+

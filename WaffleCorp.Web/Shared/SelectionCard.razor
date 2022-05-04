@@ -1,0 +1,18 @@
+﻿@using WaffleCorp.Web.Models
+<div class="selection-card d-flex justify-content-between mb-4">
+    <div class="title-price">
+        <div class="d-flex flex-nowrap">
+            <h3>@Item.Title</h3>
+            <img class="check mx-3" src="img/check.svg">
+        </div>
+        <p class="mb-1 mt-2">@Item.Description</p>
+        <p class="bold">$@Item.Price</p>
+    </div>
+    <div class="d-flex align-items-center">
+        <img id="waffle-circle" src="@Item.ImagePath">
+    </div>
+</div>
+
+@code {
+ [Parameter] public SelectionItem Item { get; set; }
+}

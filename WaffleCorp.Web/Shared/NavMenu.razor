@@ -1,0 +1,23 @@
+﻿<nav class="py-4 position-fixed top-0 end-0 w-100">
+    <div class="container mw-100 px-xl-4 px-3">
+        <div class="d-flex flex-nowrap justify-content-between align-items-center">
+            <div>
+                <a href="index.html">
+                    <img id="logo-wc" src="img/logo-wafflecorp.svg">
+                </a>
+            </div>
+            <div class="d-flex align-items-center">
+                <NavLink href="about" class="mx-3" Match="NavLinkMatch.All">
+                   <h4 class="mb-0">About</h4>
+                </NavLink>
+                 <NavLink href="login" class="mx-3" Match="NavLinkMatch.All">
+                   <h4 class="mb-0">Login</h4>
+                </NavLink>
+                 <NavLink href="account" class="mx-3" Match="NavLinkMatch.All">
+                   <h4 class="mb-0">Account</h4>
+                </NavLink>
+                <button onmousedown="openBag()" class="open-bag border-0 bg-transparent"><img src="img/cart.svg"></button>
+            </div>
+        </div>
+    </div>
+</nav>

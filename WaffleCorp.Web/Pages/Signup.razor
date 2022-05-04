@@ -1,0 +1,33 @@
+﻿@page "/signup"
+@using WaffleCorp.Web.Helpers
+<PageTitle>Wafflecorp | Signup</PageTitle>
+<div class="main-container">
+    <img id="logo-wc" class="d-block mb-5 mx-auto" src="img/logo-waffle.svg">
+    <h2 class="text-white text-center mb-5">Sign up</h2>
+    <form class="mx-auto" action="index.html">
+        <input type="text" id="fname" name="fname" placeholder="First name" class="d-block w-100 mb-4">
+        <input type="text" id="lname" name="lname" placeholder="Last name" class="d-block w-100 mb-4">
+        <input type="text" id="phone" name="phone" placeholder="Phone number" class="d-block w-100 mb-4">
+        <input type="text" id="email" name="email" placeholder="Email" class="d-block w-100 mb-4">
+        <input type="text" id="address" name="address" placeholder="Address" class="d-block w-100 mb-4">
+        <input type="text" id="city" name="city" placeholder="City" class="d-block w-100 mb-4">
+        <input type="text" id="country" name="country" placeholder="Country" class="d-block w-100 mb-4">
+        <input type="text" id="postalcode" name="postalcode" placeholder="Postal code" class="d-block w-100 mb-4">
+        <input type="text" name="password" placeholder="Password" class="d-block w-100 mb-5">
+        <input type="submit" id="login-button" name="submit" value="Sign Up" class="spaced w-100 btn border-0 text-nav-black mb-3">
+    </form>
+    <p class="text-center mt-4">Already have an account? <NavLink href="login" Match="NavLinkMatch.All">Login</NavLink></p>
+</div>
+
+
+@code {
+    [Inject] private IJSRuntime _js { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var appJsInterop = new AppJsInterop(_js);
+        await appJsInterop.SetBodyId("login");
+        await appJsInterop.SetBodyCss("min-vh-100 bg-footer-blue py-5");
+    }
+
+}

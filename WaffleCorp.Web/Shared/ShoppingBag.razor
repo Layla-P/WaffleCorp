@@ -1,0 +1,96 @@
+﻿
+
+
+
+
+<!-- Bag -->
+<div class="bag position-absolute top-0 end-0 position-fixed">
+    <div class="px-xl-4 px-3 py-4 position-relative bg-nav-black text-end">
+        <img onmousedown="closeBag()" class="exit-bag pointer" src="img/x.svg">
+    </div>
+
+    <!-- Bag contents  -->
+    <div class="container px-xl-4 px-3 bag-contents">
+
+        <!-- Display text if bag is empty -->
+        <div class="bag-empty mt-4">
+            <p>Your bag is empty! Start adding some delicious food.</p>
+        </div>
+
+        <!-- Hide div if bag is empty -->
+        <div class="hide-if-bag-empty">
+
+            <!-- Item -->
+            <div class="order-item border-bottom py-4">
+                <!-- Type of waffle -->
+                <div class="waffle-type">
+                    <p class="bold fs-16">Waffle</p>
+                    <div class="d-flex justify-content-between ps-3">
+                        <p class="waffle-choice">Turtle</p>
+                        <p class="waffle-choice-price">$6.00</p>
+                    </div>
+                </div>
+                <!-- List of toppings -->
+                <div class="toppings-list">
+                    <p class="bold fs-16">Toppings</p>
+                    <div class="d-flex justify-content-between topping ps-3">
+                        <p class="topping-type">Spiders</p>
+                        <p class="topping-price">$4.00</p>
+                    </div>
+                    <div class="d-flex justify-content-between topping ps-3">
+                        <p class="topping-type">Eyeballs</p>
+                        <p class="topping-price">$5.00</p>
+                    </div>
+                </div>
+                <!-- List of sauces -->
+                <div class="toppings-list">
+                    <p class="bold fs-16">Sauce</p>
+                    <div class="d-flex justify-content-between topping ps-3">
+                        <p class="topping-type">Lava</p>
+                        <p class="topping-price">$12.00</p>
+                    </div>
+                    <div class="d-flex justify-content-between topping ps-3">
+                        <p class="topping-type">Bubbles</p>
+                        <p class="topping-price">$2.00</p>
+                    </div>
+                </div>
+                <div class="edit-remove">
+                    <span class="upper-orange pointer me-5">EDIT</span>
+                    <span class="upper-orange pointer">REMOVE</span>
+                </div>
+            </div>
+            <br>
+            <div class="d-flex justify-content-between w-100">
+                <span class="bold">Subtotal</span>
+                <span class="bold">$29.00</span>
+            </div>
+            <div class="d-flex justify-content-between w-100 pb-3">
+                <span>Tax</span>
+                <span>$1.00</span>
+            </div>
+
+            <!-- Add another item button -->
+            <a href="index.html#order" onclick="closeBag()" class="another-item d-block another-item my-3 text-center bg-blue text-white pointer p-3 mt-5">
+                <span class="spaced bold">ADD ANOTHER ITEM</span>
+            </a>
+        </div>
+        <!-- end of Hide if bag is empty -->
+
+    </div>
+
+    <!-- Hide checkout button if bag is empty -->
+    <div class="hide-if-bag-empty">
+
+        <!-- Checkout button -->
+        <a href="checkout.html" class="bold bg-orange p-3 text-center position-absolute bottom-0 w-100 pointer">
+            <span class="text-nav-black spaced">GO TO CHECKOUT</span>
+            <span class="mx-2 text-nav-black">&#xb7;</span>
+            <span class="text-nav-black spaced">$30.00</span>
+        </a>
+    </div>
+
+</div>
+
+@code {
+
+}

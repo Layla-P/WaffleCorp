@@ -1,0 +1,18 @@
+﻿@page "/confirmation"
+@using WaffleCorp.Web.Helpers
+    <div class="main-container pt-lg-5 text-center">
+        <h1 class="mt-5">Thanks for ordering!</h1>
+        <h2 class="text-white">Order <span class="order-number h2 text-white">#5678</span> will be with you in no time!</h2>
+    </div>
+
+@code {
+    [Inject] private IJSRuntime _js { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var appJsInterop = new AppJsInterop(_js);
+        await appJsInterop.SetBodyId("confirmation");
+        await appJsInterop.SetBodyCss("min-vh-100");
+    }
+
+}
