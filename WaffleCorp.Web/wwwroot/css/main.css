@@ -523,6 +523,7 @@ main.bag-is-active {
   user-select: none;
   transition: all 0.2s linear;
   overflow: hidden;
+  position:relative;
 }
 .selection-card .check {
   height: 34px;
@@ -583,23 +584,33 @@ main.bag-is-active {
 }
 
 .alert-container {
-  width: 80%;
-  height: 50%;
-  background: #4866FF;
-  color: white;
-  margin: auto;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  opacity: 1;
-  -webkit-animation: fade 2.5s linear forwards;
-  animation: fade 2.5s linear forwards;
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    width: 80%;
+    height: 50%;
+    background: #4866FF;
+    color: white;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 1;
+    -webkit-animation: fade 2.5s linear forwards;
+    animation: fade 2.5s linear forwards;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden; /* Hidden by default. Visible on click */
+    pointer-events: none;
 }
+
+    .alert-container.show {
+        visibility: visible; /* Show the snackbar */
+        /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+  However, delay the fade out process for 2.5 seconds */
+        -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
 
 #about {
   background-image: url(../img/About-page-background.svg) !important;

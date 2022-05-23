@@ -517,95 +517,119 @@ main {
   padding-top: 120px;
 }
 .selection-card {
-  cursor: pointer;
-  width: 48.7%;
-  background: #0E0E37;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  // border: 1px solid #5B72FF;
-  border-radius: 12px 0px;
-  padding: 25px;
-  height: 153px;
-  -webkit-box-shadow:inset 0px 0px 0px 2px $blue;
-  -moz-box-shadow:inset 0px 0px 0px 2px $blue;
-  box-shadow:inset 0px 0px 0px 2px $blue;
-  user-select: none; 
-  transition: all .2s linear;
-  overflow: hidden;
-
-  .check {
-    height: 34px;
-    opacity: 0;
-    transition: opacity .2s ease-out;
-  }
-  #eyeballs,
-  #legos {
-    height: 52px;
-  }
-  #spider {
-    height: 58px;
-  }
-  #popcorn,
-  #chicken {
-    height: 70px;
-  }
-  #dice,
-  #succulents,
-  #cherries,
-  #waffle-parallelogram {
-    height: 80px;
-  }
-  #waffle-septagon,
-  #waffle-circle {
-    height: 95px;
-  }
-  #waffle-turtle {
-    height: 115px;
-    transform: rotate(45deg) translateY(-20px);
-  }
-  #slime,
-  #syrup,
-  #lava {
-    height: 100px;
-  }
-  #bubbles {
-    height: 104px;
-  }
-  &:hover {
-    background: #161656;
-  }
-  &.active {
-    -webkit-box-shadow:inset 0px 0px 0px 3px $blue;
-    -moz-box-shadow:inset 0px 0px 0px 3px $blue;
-    box-shadow:inset 0px 0px 0px 3px $blue;
+    cursor: pointer;
+    width: 48.7%;
+    background: #0E0E37;
     box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    // border: 1px solid #5B72FF;
     border-radius: 12px 0px;
-    background: #161656;
+    padding: 25px;
+    height: 153px;
+    -webkit-box-shadow: inset 0px 0px 0px 2px $blue;
+    -moz-box-shadow: inset 0px 0px 0px 2px $blue;
+    box-shadow: inset 0px 0px 0px 2px $blue;
+    user-select: none;
+    transition: all .2s linear;
+    overflow: hidden;
+    position: relative;
+
     .check {
-      opacity: 1;
+        height: 34px;
+        opacity: 0;
+        transition: opacity .2s ease-out;
     }
-  }
-  @media screen and (max-width:800px) {
-    width: 100%;
-  }
+
+    #eyeballs,
+    #legos {
+        height: 52px;
+    }
+
+    #spider {
+        height: 58px;
+    }
+
+    #popcorn,
+    #chicken {
+        height: 70px;
+    }
+
+    #dice,
+    #succulents,
+    #cherries,
+    #waffle-parallelogram {
+        height: 80px;
+    }
+
+    #waffle-septagon,
+    #waffle-circle {
+        height: 95px;
+    }
+
+    #waffle-turtle {
+        height: 115px;
+        transform: rotate(45deg) translateY(-20px);
+    }
+
+    #slime,
+    #syrup,
+    #lava {
+        height: 100px;
+    }
+
+    #bubbles {
+        height: 104px;
+    }
+
+    &:hover {
+        background: #161656;
+    }
+
+    &.active {
+        -webkit-box-shadow: inset 0px 0px 0px 3px $blue;
+        -moz-box-shadow: inset 0px 0px 0px 3px $blue;
+        box-shadow: inset 0px 0px 0px 3px $blue;
+        box-sizing: border-box;
+        border-radius: 12px 0px;
+        background: #161656;
+
+        .check {
+            opacity: 1;
+        }
+    }
+
+    @media screen and (max-width:800px) {
+        width: 100%;
+    }
 }
 .alert-container {
-  width: 80%;
-  height: 50%;
-  background: $blue;
-  color: white;
-  margin: auto;
-  top: 0; left: 0; bottom: 0; right: 0;
-  opacity: 1;
-  -webkit-animation: fade 2.5s linear forwards;
-  animation: fade 2.5s linear forwards;
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    width: 80%;
+    height: 50%;
+    background: $blue;
+    color: white;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 1;
+    -webkit-animation: fade 2.5s linear forwards;
+    animation: fade 2.5s linear forwards;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden; /* Hidden by default. Visible on click */
+    pointer-events: none;
 }
-
+.alert-container.show {
+    visibility: visible; /* Show the snackbar */
+    /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+  However, delay the fade out process for 2.5 seconds */
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
 // About
 #about {
   background-image: url(../img/About-page-background.svg) !important;

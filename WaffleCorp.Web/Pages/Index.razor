@@ -16,7 +16,7 @@
             <div id="base" class="d-flex row justify-content-between mx-0">
                 @foreach (var b in Bases)
                 {
-                    <SelectionCard Item="b" />
+                    <SelectionCard Item="b" SelectButtonClicked="() => BaseSelect(b)"/>
                 }
             </div>
         </div>
@@ -30,10 +30,10 @@
             <br>
 
             <div id="toppings" class="d-flex row justify-content-between mx-0">
-
+             
                 @foreach (var t in Toppings)
                 {
-                    <SelectionCard Item="t" />
+                    <SelectionCard Item="t" SelectButtonClicked="() => ToppingSelect(t)"/>
                 }
 
             </div>
@@ -47,11 +47,11 @@
             <p>Now add a little goop.</p>
             <br>
 
-            <div id="toppings" class="d-flex row justify-content-between mx-0">
+            <div id="sauces" class="d-flex row justify-content-between mx-0">
 
                 @foreach (var s in Sauces)
                 {
-                    <SelectionCard Item="s" />
+                    <SelectionCard Item="s" SelectButtonClicked="() => BaseSelect(s)"/>
                 }
 
             </div>

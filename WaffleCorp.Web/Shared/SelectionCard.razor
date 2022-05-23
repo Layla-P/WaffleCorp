@@ -1,5 +1,5 @@
 ﻿@using WaffleCorp.Web.Models
-<div class="selection-card d-flex justify-content-between mb-4">
+<div class="selection-card d-flex justify-content-between mb-4 @(Item.IsActive? "active":"")" @onclick=SelectButtonClicked>
     <div class="title-price">
         <div class="d-flex flex-nowrap">
             <h3>@Item.Title</h3>
@@ -11,8 +11,12 @@
     <div class="d-flex align-items-center">
         <img id="waffle-circle" src="@Item.ImagePath">
     </div>
+    <div class="alert-container @(Item.IsErrorVisible? "show":"")"  role="alert" >
+        You can only select up to 4 toppings</div>
 </div>
 
 @code {
- [Parameter] public SelectionItem Item { get; set; }
+    [Parameter] public SelectionItem Item { get; set; }
+    [Parameter] public EventCallback SelectButtonClicked { get; set; }  
+    
 }

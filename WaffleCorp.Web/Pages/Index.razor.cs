@@ -11,6 +11,10 @@ namespace WaffleCorp.Web.Pages
         public List<SelectionItem> Bases;
         public List<SelectionItem> Toppings;
         public List<SelectionItem> Sauces;
+        // Bag object with all waffles
+        // Current waffle selection
+        public Order Order = new();
+        public Waffle CurrentWaffle = new();
         [Inject] private AppJsInterop AppJsInterop { get; set; }
 
 
@@ -22,9 +26,60 @@ namespace WaffleCorp.Web.Pages
             await AppJsInterop.SetBodyId("home");
         }
 
-        private void GetBases()
+        public void BaseSelect(SelectionItem baseItem)
         {
-            Bases = new()
+            Bases.ForEach(b => b.IsActive = false);
+            baseItem.IsActive = true;
+            CurrentWaffle.WaffleBase = new()
+            {
+                WaffleShape = baseItem.Title,
+                Price = baseItem.Price
+            };
+        }
+
+        public void ToppingSelect(SelectionItem toppingItem)
+        {
+            
+            if (!toppingItem.IsActive)
+            {
+                if (CurrentWaffle.Toppings.Count() < 4)
+                {
+                    CurrentWaffle.Toppings.Add(new Topping(toppingItem));
+                    toppingItem.IsActive = true;
+                }
+                else
+                {
+                    ShowToppingsError(toppingItem);
+                }
+            }
+            else
+            {
+
+                CurrentWaffle.Toppings.RemoveAll(i => i.ToppingName == toppingItem.Title);
+                toppingItem.IsActive = false;
+            }
+
+        }
+
+
+
+
+    public void ShowToppingsError(SelectionItem toppingItem)
+    {
+        Task.Run(async () =>
+           {
+               toppingItem.IsErrorVisible = true;
+               StateHasChanged();
+               await Task.Delay(5000);
+               toppingItem.IsErrorVisible = false;
+               StateHasChanged();
+           }
+        );
+    }
+
+    private void GetBases()
+    {
+        Bases = new()
             {
                 new SelectionItem
                 {
@@ -55,10 +110,10 @@ namespace WaffleCorp.Web.Pages
                     ImagePath = "img/Waffle-turtle.svg"
                 }
             };
-        }
-        private void GetToppings()
-        {
-            Toppings = new()
+    }
+    private void GetToppings()
+    {
+        Toppings = new()
             {
                 new SelectionItem
                 {
@@ -117,10 +172,10 @@ namespace WaffleCorp.Web.Pages
                     ImagePath = "img/Toppings-dice.svg"
                 }
             };
-        }
-        private void GetSauces()
-        {
-            Sauces = new()
+    }
+    private void GetSauces()
+    {
+        Sauces = new()
             {
                 new SelectionItem
                 {
@@ -151,6 +206,6 @@ namespace WaffleCorp.Web.Pages
                     ImagePath = "img/Sauce-Bubbles.svg"
                 }
             };
-        }
     }
+}
 }
